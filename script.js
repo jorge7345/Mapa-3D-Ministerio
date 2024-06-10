@@ -1,15 +1,26 @@
+const jsonServer = require("json-server");
+const server = jsonServer.create();
+const router = jsonServer.router("db.json");
+const  middlewares = jsonServer.defaults();
+const port = process.env.PORT || 3001;
+
+server.use(middlewares);
+server.use(router);
+
+server.listen(port);
+
 
 document.addEventListener("DOMContentLoaded", function() {
     const modelViewer = document.getElementById('modelViewer');
     const label = document.getElementById('label');
 
     // Cargar el primer modelo .glb
-    modelViewer.src = '/modelos/Ministerio3D2.glb'; // Ruta relativa al primer modelo glb
+    modelViewer.src = './modelos/Ministerio3D2.glb'; // Ruta relativa al primer modelo glb
     modelViewer.alt = 'Edificios'; // Descripción del primer modelo
 
     // Cargar el segundo modelo .glb
     const secondModel = document.createElement('model-viewer');
-    secondModel.src = '/modelos/mapGPS.glb'; // Ruta relativa al segundo modelo glb
+    secondModel.src = './modelos/mapGPS.glb'; // Ruta relativa al segundo modelo glb
     secondModel.alt = 'Segundo Edificio'; // Descripción del segundo modelo
     modelViewer.appendChild(secondModel);
 

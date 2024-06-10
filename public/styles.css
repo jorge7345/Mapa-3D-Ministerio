@@ -1,0 +1,19 @@
+.title-container {
+    background-color: rgb(39, 61, 182);
+    padding: 10px;
+    color: white;
+}
+.viewer-container {
+    position: relative;
+    width: 100%;
+    height: 80vh;
+}
+.icon-overlay {
+    position: absolute;
+    z-index: 10; /* Para asegurarse de que esté encima del modelo 3D */
+}
+.label {
+    background-color: white;
+    padding: 5px;
+    display: none; /* Ocultar inicialmente */
+}

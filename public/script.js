@@ -33,3 +33,38 @@ document.addEventListener("DOMContentLoaded", function() {
     // Iniciar la actualización continua de la posición de la etiqueta
     updateLabelPosition();
 });
+
+
+// Function to show the popup with the given text
+function showPopup(text) {
+    const popup = document.getElementById("popup");
+    const popupText = document.getElementById("popup-text");
+    popupText.innerText = text;
+    popup.style.display = "block";
+}
+
+// Function to close the popup
+function closePopup() {
+    const popup = document.getElementById("popup");
+    popup.style.display = "none";
+}
+
+// Add event listeners to the buttons
+document.getElementById("hotspot-1").addEventListener("click", function() {
+    showPopup("Information about Hotspot 1");
+});
+
+document.getElementById("hotspot-2").addEventListener("click", function() {
+    showPopup("Information about Hotspot 2");
+});
+
+// Add event listener to the close button
+document.querySelector(".close").addEventListener("click", closePopup);
+
+// Add event listener to close the popup when clicking outside of it
+window.addEventListener("click", function(event) {
+    const popup = document.getElementById("popup");
+    if (event.target === popup) {
+        popup.style.display = "none";
+    }
+});
